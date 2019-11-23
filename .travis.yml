@@ -11,3 +11,14 @@ script:
   - cd eureka-server-demo
   - docker build -t discovery:0.1 .
   - docker run -p 8086:8086 discovery:0.1
+
+cache:
+  directories:
+    - $HOME/.m2
+
+deploy:
+  provider: Heroku
+  api_key:
+    secure: 4a378af3-5aca-4765-a4e2-969d3059685e
+  app: demo-app-97
+  skip_cleanup: true
