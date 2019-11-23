@@ -9,7 +9,7 @@ dist: trusty
 
 script:
   - cd eureka-server-demo
-  - docker build -t discovery:0.1 .
+  - docker-compose build
 
 cache:
   directories:
