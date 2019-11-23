@@ -10,7 +10,6 @@ dist: trusty
 script:
   - cd eureka-server-demo
   - docker build -t discovery:0.1 .
-  - docker run -p 8086:8086 discovery:0.1
 
 cache:
   directories:
