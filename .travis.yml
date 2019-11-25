@@ -7,14 +7,18 @@ services:
 
 dist: trusty
 
+env:
+  - DOCKER_USERNAME=shubhamtricon
+
 script:
   - cd eureka-server-demo
   - docker-compose build
   - docker tag shubhamtricon/discovery-server-image:latest shubhamtricon/ecommerce-discovery-server:1.0
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push shubhamtricon/ecommerce-discovery-server:1.0
   - docker rmi shubhamtricon/discovery-server-image:latest -f
-  - docker pull shubhamtricon/ecommerce-discovery-server:latest
-  - docker run shubhamtricon/discovery-server-image:latest
+  - docker pull shubhamtricon/ecommerce-discovery-server:1.0
+  - docker run -d shubhamtricon/ecommerce-discovery-server:1.0
 
 cache:
   directories:
