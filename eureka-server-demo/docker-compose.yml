@@ -1,0 +1,8 @@
+version: "3"
+services:
+  discovery-server:
+    build: .
+    image: shubhamtricon/discovery-server-image:latest
+    container_name: discover-server-container
+    ports:
+      - "8086:8086"
